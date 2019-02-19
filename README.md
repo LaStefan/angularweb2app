@@ -30,4 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Members of the team:
 Stefan and Klaudia
 
-Link to the Website: http://i396268.hera.fhict.nl/web2
+Link to the Website: http://i396268.hera.fhict.nl
