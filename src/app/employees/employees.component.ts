@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from '../employee';
+import {EMPLOYEES} from '../mock-employees';
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+    selector: 'app-employees',
+    templateUrl: './employees.component.html',
+    styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
 
-    employee : Employee ={
-        id: 1,
-        name: 'Lily Jones',
-        departmentID: 2
-    }
-  constructor() { }
+    employees = EMPLOYEES;
+    selectedEmployee: Employee;
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+    onSelect(employee: Employee): void {
+        this.selectedEmployee = employee;
+    }
 
 }

@@ -1,3 +1,25 @@
-<h2>{{department.name}} </h2>
-<div><span>id:</span> {{department.id}}</div>
-<div><span>name:</span> {{department.name}}</div>
+
+
+<h2>Department </h2>
+
+<ul class="departments">
+    <li *ngFor="let department of departments" [class.selected]="department === selectedDepartment "
+        (click)="onSelect(department)" >
+        <span class="badge">{{department.id}}</span> {{department.name}}
+    </li>
+</ul>
+
+
+<div *ngIf="selectedDepartment">
+
+    <h2>{{selectedDepartment.name}} Details</h2>
+    <div><span>id: </span>{{selectedDepartment.id}}</div>
+    <div>
+        <label>name:
+            <input [(ngModel)]="selectedDepartment.name" placeholder="name">
+        </label>
+    </div>
+</div>
+
+
+
