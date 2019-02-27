@@ -5,13 +5,13 @@ import {Task} from "./task";
 */
 
 @Component({
-    selector: 'app-root',
-    templateUrl:'./app.component.html',
+  selector: 'app-root',
+  templateUrl:'./app.component.html',
     styleUrls: ['./app.component.css']
 
-})
+      })
 export class AppComponent {
-    title = 'Our Angular App';
+  title = 'Our Angular App';
 
 
 }

@@ -3,19 +3,19 @@ import {Department} from '../department';
 import {DEPARTMENTS} from '../mock-departments';
 
 @Component({
-    selector: 'app-departments',
-    templateUrl: './departments.component.html',
-    styleUrls: ['./departments.component.css']
+  selector: 'app-departments',
+  templateUrl: './departments.component.html',
+  styleUrls: ['./departments.component.css']
 })
 export class DepartmentsComponent implements OnInit
 {
-    departments = DEPARTMENTS;
-    selectedDepartment : Department;
+  departments = DEPARTMENTS;
+  selectedDepartment : Department;
 
     constructor() {}
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
     onSelect(department: Department): void
     {
         this.selectedDepartment = department;

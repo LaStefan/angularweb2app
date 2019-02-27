@@ -7,3 +7,4 @@ export const DEPARTMENTS: Department [] = [
     { id: 3, name:'Technology'}
 ];
 
+export interface Flyer { newDepartment: boolean; }
