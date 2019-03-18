@@ -1,0 +1,35 @@
+<div>
+ <h2>DASHBOARD</h2>
+
+</div>
+
+
+<label>Tasks:</label>
+<select [(ngModel)]="tasks">
+  <ng-container *ngFor="let task of tasks"
+    [class.selected]="task === selectedTask"
+    (click)="onSelect(task)">
+
+
+      <option [ngValue]="task">{{task.id}} ({{task.name}})</option>
+    <span class="badge">{{task.id}}</span> {{task.name}}
+    </ng-container>
+
+
+</select>
+<label>Departments:</label>
+<select [(ngModel)]="departments">
+  <ng-container *ngFor="let dep of departments">
+
+    <option [ngValue]="dep">{{dep.id}} ({{dep.name}})</option>
+  </ng-container>
+
+</select>
+<label>Employees:</label>
+<select [(ngModel)]="employees">
+  <ng-container *ngFor="let emp of employees">
+
+    <option [ngValue]="emp">{{emp.id}} ({{emp.name}})</option>
+  </ng-container>
+
+</select>
