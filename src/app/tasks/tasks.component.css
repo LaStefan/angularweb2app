@@ -46,4 +46,30 @@
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+.button-style {
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #EEEEEE;
+  font-style: normal;
+  font-size: large;
+
+
+
+}
+.positioning-title {
+  margin-top: 50px;
+  margin-left: 600px;
+  margin-right: 600px;
+  position: center;
+  flex-direction: row;
+}
+.mini-fab-buttons {
+  background-color: black;
+  font-style: normal;
+  color: #EEEEEE;
+  height: 35px;
+  left: 25px;
+  position: center;
+
+}
 

@@ -61,3 +61,24 @@ h4 {
     min-width: 60px;
   }
 }
+.example-button-row button,
+.example-button-row a {
+  margin-top: 25px;
+  margin-left: 600px;
+  margin-right: 600px;
+  flex-direction: row;
+  background-color: #EEEEEE;
+  font-style: oblique;
+  font-size: large;
+  text-align: center;
+
+
+}
+.positioning-title {
+   margin-top: 50px;
+  margin-left: 600px;
+  margin-right: 600px;
+  position: center;
+  flex-direction: row;
+}
+

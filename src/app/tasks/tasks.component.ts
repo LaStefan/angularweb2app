@@ -26,7 +26,9 @@ export class TasksComponent implements OnInit {
     this.selectedTask = task;
   }
   addTask(task: Task): void {
-    this.tasks.push(task);
+      if (task) {
+      this.tasks.push(task);
+    }
   }
   deleteTask(name): void {
     const key = 'name';

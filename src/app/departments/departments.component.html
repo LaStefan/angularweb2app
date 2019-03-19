@@ -1,17 +1,18 @@
+<div class="positioning-title">
 <h2>Departments</h2>
-<label>
-  <input [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
-</label>
-
+  <div>
+    <input matInput placeholder="search" [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
+  </div>
+<div *ngIf="searchTerm">
 <ul class="departments">
   <li *ngFor="let department of departments"
       [class.selected]="department === selectedDep"
       (click)="onSelect(department)">
     <span class="badge">{{department.id}}</span> {{department.name}}
-    <button (click)="deleteDepartment(department.name)">Delete</button>
+    <button class="mini-fab-buttons" mat-mini-fab  (click)="deleteDepartment(department.name)">Delete</button>
   </li>
 </ul>
-
+</div>
 <div *ngIf="selectedDep">
 
   <h2>{{selectedDep.name | uppercase}} Details</h2>
@@ -19,10 +20,11 @@
   <div>
     <label>name:
       <input [(ngModel)]="selectedDep.name" placeholder="name"/>
-      <button (click)="addDepartment(selectedDep)">Add</button>
+      <button class="button-style" mat-raised-button (click)="addDepartment(selectedDep)">Add</button>
     </label>
   </div>
   <label>employees: {{selectedDep.employee}}</label>
 </div>
-<button (click)="goBack()">go back</button>
+<button class="button-style" mat-raised-button (click)="goBack()">Back</button>
 
+</div>

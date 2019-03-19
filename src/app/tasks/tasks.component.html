@@ -1,18 +1,19 @@
+<div class="positioning-title">
 <h2>Tasks</h2>
-<label>Search:
-  <input [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
-</label>
+  <div>
+    <input matInput placeholder="search" [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
+  </div>
 
-
+<div *ngIf="searchTerm">
 <ul class="tasks">
   <li *ngFor="let task of tasks"
       [class.selected]="task === selectedTask"
       (click)="onSelect(task)">
     <span class="badge">{{task.id}}</span> {{task.name}}
-    <button (click)="deleteTask(task.name)">Delete</button>
+    <button class="mini-fab-buttons" mat-mini-fab (click)="deleteTask(task.name)">Delete</button>
   </li>
 </ul>
-
+</div>
 <div *ngIf="selectedTask">
 
   <h2>{{selectedTask.name | uppercase}} Details</h2>
@@ -20,7 +21,7 @@
   <div>
     <label>name:
       <input [(ngModel)]="selectedTask.name" placeholder="name"/>
-      <button (click)="addTask(selectedTask)">Add</button>
+      <button class="button-style" mat-raised-button (click)="addTask(selectedTask)">Add</button>
     </label>
   </div>
   <div>
@@ -33,6 +34,6 @@
   <label>deadline: {{selectedTask.time}}</label>
   </div>
 </div>
-<button (click)="goBack()">go back</button>
+<button class="button-style" mat-raised-button (click)="goBack()">Back</button>
 
-
+</div>
