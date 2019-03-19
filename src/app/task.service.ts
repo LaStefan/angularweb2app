@@ -7,11 +7,23 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-
+tasks: Task[]
   constructor() {
   }
 
   getTasks(): Observable<Task[]> {
     return of(TASKS);
+  }
+  addTask(task: Task): void {
+    this.tasks.push(task);
+  }
+  deleteTask(name): void {
+    const key = 'name';
+    for ( let i = 0; i < this.tasks.length; i++) {
+      if (this.tasks[i][key] === name) {
+        this.tasks.splice(i, 1);
+      }
+
+    }
   }
 }

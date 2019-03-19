@@ -1,4 +1,10 @@
 <h2>Employees</h2>
+<label>Search:
+  <input [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
+</label>
+
+
+
 <ul class="employees">
   <li *ngFor="let employee of employees"
       [class.selected]="employee === selectedEmployee"
@@ -7,6 +13,7 @@
     <button (click)="deleteEmployee(employee.name)">Delete</button>
   </li>
 </ul>
+
 
 <div *ngIf="selectedEmployee">
 
@@ -21,3 +28,4 @@
   </div>
   <label>department: {{selectedEmployee.department}}</label>
 </div>
+<button (click)="goBack()">go back</button>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Employee} from '../employee';
 
 import {EmployeeService} from '../employee.service';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -12,7 +14,10 @@ import {EmployeeService} from '../employee.service';
 export class EmployeesComponent implements OnInit {
 employees: Employee[];
 selectedEmployee: Employee;
-  constructor( private employeeService: EmployeeService) { }
+searchTerm: string;
+  constructor( private employeeService: EmployeeService,
+               private route: ActivatedRoute,
+               private location: Location) { }
 
   ngOnInit() {
     this.getEmployee();
@@ -35,5 +40,14 @@ selectedEmployee: Employee;
   getEmployee(): void {
     this.employeeService.getEmployees()
       .subscribe(employees => this.employees = employees);
+  }
+  goBack(): void {
+    this.location.back();
+  }
+  search(): void {
+    const term = this.searchTerm;
+    this.employees = this.employees.filter(function foo(tag) {
+      return tag.name.indexOf(term) >= 0;
+    });
   }
 }

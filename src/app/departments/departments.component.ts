@@ -3,6 +3,8 @@ import {Department} from '../department';
 import {DEPARTMENTS} from '../mock-departments';
 
 import {DepartmentService} from '../department.service';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 
 
@@ -15,7 +17,9 @@ import {DepartmentService} from '../department.service';
 export class DepartmentsComponent implements OnInit {
 departments: Department[];
 selectedDep: Department;
-  constructor(private departmentService: DepartmentService) { }
+searchTerm: string;
+  constructor(private departmentService: DepartmentService,private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit() {
     this.getDepartments();
@@ -38,5 +42,14 @@ selectedDep: Department;
   getDepartments(): void {
     this.departmentService.getDepartment()
       .subscribe(departments => this.departments = departments);
+  }
+  goBack(): void {
+    this.location.back();
+  }
+  search(): void {
+    const term = this.searchTerm;
+    this.departments = this.departments.filter(function foo(tag) {
+      return tag.name.indexOf(term) >= 0;
+    });
   }
 }

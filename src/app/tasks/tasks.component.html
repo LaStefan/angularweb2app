@@ -1,4 +1,9 @@
 <h2>Tasks</h2>
+<label>Search:
+  <input [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
+</label>
+
+
 <ul class="tasks">
   <li *ngFor="let task of tasks"
       [class.selected]="task === selectedTask"
@@ -18,8 +23,16 @@
       <button (click)="addTask(selectedTask)">Add</button>
     </label>
   </div>
-
+  <div>
+<label>department: {{selectedTask.department | uppercase}}</label>
+  </div>
+ <div>
+  <label>employees: {{selectedTask.employee | uppercase}}</label>
+ </div>
+  <div>
+  <label>deadline: {{selectedTask.time}}</label>
+  </div>
 </div>
-
+<button (click)="goBack()">go back</button>
 
 
