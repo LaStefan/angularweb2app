@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
+import {CalendarComponent} from './calendar/calendar.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {TasksComponent} from './tasks/tasks.component';
 import {DepartmentsComponent} from './departments/departments.component';
@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'tasks', component: TasksComponent},
   {path: 'departments', component: DepartmentsComponent},
-  {path: 'employees', component: EmployeesComponent}
+  {path: 'employees', component: EmployeesComponent},
+  {path: 'calendar', component: CalendarComponent}
 ];
 
 @NgModule({

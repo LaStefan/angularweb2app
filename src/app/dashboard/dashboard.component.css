@@ -82,3 +82,7 @@ h4 {
   flex-direction: row;
 }
 
+.calendar-button {
+  margin-left: 50px;
+
+}

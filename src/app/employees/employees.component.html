@@ -5,7 +5,7 @@
   </div>
 
 
-<div *ngIf="searchTerm">
+
 <ul class="employees">
   <li *ngFor="let employee of employees"
       [class.selected]="employee === selectedEmployee"
@@ -14,7 +14,7 @@
     <button class="mini-fab-buttons" mat-mini-fab (click)="deleteEmployee(employee.name)">Delete</button>
   </li>
 </ul>
-</div>
+
 
 <div *ngIf="selectedEmployee">
 

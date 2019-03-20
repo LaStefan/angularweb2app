@@ -15,7 +15,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { CalendarComponent } from './calendar/calendar.component';
-
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     MatDatepickerModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

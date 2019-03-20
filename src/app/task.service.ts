@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-tasks: Task[]
+tasks: Task[];
   constructor() {
   }
 

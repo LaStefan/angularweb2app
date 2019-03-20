@@ -4,7 +4,7 @@
     <input matInput placeholder="search" [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
   </div>
 
-<div *ngIf="searchTerm">
+
 <ul class="tasks">
   <li *ngFor="let task of tasks"
       [class.selected]="task === selectedTask"
@@ -13,7 +13,7 @@
     <button class="mini-fab-buttons" mat-mini-fab (click)="deleteTask(task.name)">Delete</button>
   </li>
 </ul>
-</div>
+
 <div *ngIf="selectedTask">
 
   <h2>{{selectedTask.name | uppercase}} Details</h2>

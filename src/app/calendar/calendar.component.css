@@ -1,0 +1,23 @@
+.example-events {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #555;
+  overflow: auto;
+}
+.positioning-title {
+  margin-top: 50px;
+  margin-left: 600px;
+  margin-right: 600px;
+  position: center;
+  flex-direction: row;
+}
+.button-style {
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: #EEEEEE;
+  font-style: normal;
+  font-size: large;
+
+
+
+}
