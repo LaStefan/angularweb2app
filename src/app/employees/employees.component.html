@@ -19,15 +19,17 @@
 <div *ngIf="selectedEmployee">
 
   <h2>{{selectedEmployee.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedEmployee.id}}</div>
-  <div>
+  <div class="display-details"><span>id: </span>{{selectedEmployee.id}}</div>
+  <div class="display-details">
     <label>name:
       <input [(ngModel)]="selectedEmployee.name" placeholder="name"/>
       <button class="button-style" mat-raised-button (click)="addEmployee(selectedEmployee)">Add</button>
     </label>
 
   </div>
+  <div class="display-details">
   <label>department: {{selectedEmployee.department}}</label>
+  </div>
 </div>
 <button class="button-style" mat-raised-button (click)="goBack()">Back</button>
 </div>

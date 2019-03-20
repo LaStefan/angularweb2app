@@ -17,20 +17,20 @@
 <div *ngIf="selectedTask">
 
   <h2>{{selectedTask.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedTask.id}}</div>
-  <div>
+  <div class="display-details"><span>id: </span>{{selectedTask.id}}</div>
+  <div class="display-details">
     <label>name:
       <input [(ngModel)]="selectedTask.name" placeholder="name"/>
       <button class="button-style" mat-raised-button (click)="addTask(selectedTask)">Add</button>
     </label>
   </div>
-  <div>
+  <div class="display-details" >
 <label>department: {{selectedTask.department | uppercase}}</label>
   </div>
- <div>
+ <div class="display-details">
   <label>employees: {{selectedTask.employee | uppercase}}</label>
  </div>
-  <div>
+  <div class="display-details">
   <label>deadline: {{selectedTask.time}}</label>
   </div>
 </div>

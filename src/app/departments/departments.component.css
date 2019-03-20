@@ -72,3 +72,11 @@
   position: center;
 
 }
+.display-details {
+  background-color: #DDDDDD;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  float: left;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
