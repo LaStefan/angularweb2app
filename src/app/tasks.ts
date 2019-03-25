@@ -2,7 +2,7 @@ export class Task {
   constructor(
     public id: number,
     public name: string,
-    public department: string,
-    public employee: string,
-    public time: string) { }
+    public department: number,
+    public employee: number[],
+    public time: any) { }
 }

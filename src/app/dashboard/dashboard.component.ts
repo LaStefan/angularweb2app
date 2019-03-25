@@ -35,7 +35,7 @@ this.getEmployee();
   }
 
   getDepartments(): void {
-    this.depService.getDepartment()
+    this.depService.getDepartments()
       .subscribe(departments => this.departments = departments);
   }
 }

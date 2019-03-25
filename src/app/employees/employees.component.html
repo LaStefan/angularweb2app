@@ -2,8 +2,13 @@
 <h2>Employees</h2>
   <div>
     <input matInput placeholder="search" [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
-  </div>
 
+  </div>
+  <div>
+
+    <input placeholder="add employee" #employee />
+    <button class="button-style" mat-raised-button (click)="addEmployee(employee.value); employee.value=''">Add</button>
+  </div>
 
 
 <ul class="employees">
@@ -11,25 +16,14 @@
       [class.selected]="employee === selectedEmployee"
       (click)="onSelect(employee)">
     <span class="badge">{{employee.id}}</span> {{employee.name}}
-    <button class="mini-fab-buttons" mat-mini-fab (click)="deleteEmployee(employee.name)">Delete</button>
+    <div>
+      <button class="button-delete" mat-mini-fab (click)="deleteEmployee(employee)">X</button>
+    </div>
+
   </li>
 </ul>
 
+<app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
 
-<div *ngIf="selectedEmployee">
-
-  <h2>{{selectedEmployee.name | uppercase}} Details</h2>
-  <div class="display-details"><span>id: </span>{{selectedEmployee.id}}</div>
-  <div class="display-details">
-    <label>name:
-      <input [(ngModel)]="selectedEmployee.name" placeholder="name"/>
-      <button class="button-style" mat-raised-button (click)="addEmployee(selectedEmployee)">Add</button>
-    </label>
-
-  </div>
-  <div class="display-details">
-  <label>department: {{selectedEmployee.department}}</label>
-  </div>
-</div>
 <button class="button-style" mat-raised-button (click)="goBack()">Back</button>
 </div>

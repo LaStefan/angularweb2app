@@ -2,38 +2,26 @@
 <h2>Tasks</h2>
   <div>
     <input matInput placeholder="search" [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
-  </div>
 
+  </div>
+<div>
+
+  <input placeholder="add task" #task />
+  <button class="button-style" mat-raised-button (click)="addTask(task.value); task.value=''">Add</button>
+</div>
 
 <ul class="tasks">
   <li *ngFor="let task of tasks"
       [class.selected]="task === selectedTask"
       (click)="onSelect(task)">
     <span class="badge">{{task.id}}</span> {{task.name}}
-    <button class="mini-fab-buttons" mat-mini-fab (click)="deleteTask(task.name)">Delete</button>
+    <div>
+      <button class="button-delete" title="delete task" mat-mini-fab (click)="deleteTask(task)">X</button>
+    </div>
+
   </li>
 </ul>
+  <app-task-detail [task]="selectedTask"></app-task-detail>
 
-<div *ngIf="selectedTask">
-
-  <h2>{{selectedTask.name | uppercase}} Details</h2>
-  <div class="display-details"><span>id: </span>{{selectedTask.id}}</div>
-  <div class="display-details">
-    <label>name:
-      <input [(ngModel)]="selectedTask.name" placeholder="name"/>
-      <button class="button-style" mat-raised-button (click)="addTask(selectedTask)">Add</button>
-    </label>
-  </div>
-  <div class="display-details" >
-<label>department: {{selectedTask.department | uppercase}}</label>
-  </div>
- <div class="display-details">
-  <label>employees: {{selectedTask.employee | uppercase}}</label>
- </div>
-  <div class="display-details">
-  <label>deadline: {{selectedTask.time}}</label>
-  </div>
-</div>
-<button class="button-style" mat-raised-button (click)="goBack()">Back</button>
-
+  <button class="button-style" mat-raised-button (click)="goBack()">Back</button>
 </div>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Department} from '../department';
-import {DEPARTMENTS} from '../mock-departments';
 
 import {DepartmentService} from '../department.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+
 
 
 
@@ -18,7 +18,7 @@ export class DepartmentsComponent implements OnInit {
 departments: Department[];
 selectedDep: Department;
 searchTerm: string;
-  constructor(private departmentService: DepartmentService,private route: ActivatedRoute,
+  constructor(private departmentService: DepartmentService, private route: ActivatedRoute,
               private location: Location) { }
 
   ngOnInit() {
@@ -27,20 +27,19 @@ searchTerm: string;
   onSelect(department: Department): void {
     this.selectedDep = department;
   }
-  deleteDepartment(name): void {
-    const key = 'name';
-    for ( let i = 0; i < this.departments.length; i++) {
-      if (this.departments[i][key] === name) {
-        this.departments.splice(i, 1);
-      }
-
-    }
+  addDepartment(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.departmentService.addDepartment({ name } as Department).subscribe(department => {
+      this.departments.push(department);
+    });
   }
-  addDepartment(department: Department) {
-    this.departments.push(department);
+  deleteDepartment(department: Department): void {
+    this.departments = this.departments.filter(t => t !== department);
+    this.departmentService.deleteDepartment(department).subscribe();
   }
   getDepartments(): void {
-    this.departmentService.getDepartment()
+    this.departmentService.getDepartments()
       .subscribe(departments => this.departments = departments);
   }
   goBack(): void {

@@ -16,6 +16,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarModule } from 'ng-fullcalendar';
+import { HttpClientModule } from '@angular/common/http';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     DepartmentsComponent,
     EmployeesComponent,
     DashboardComponent,
-    CalendarComponent
+    CalendarComponent,
+    TaskDetailComponent,
+    DepartmentDetailComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +44,7 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     MatButtonModule,
     MatInputModule,
     FullCalendarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

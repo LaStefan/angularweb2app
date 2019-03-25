@@ -4,6 +4,8 @@ import {Employee} from '../employee';
 import {EmployeeService} from '../employee.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+import {Task} from '../tasks';
+
 
 
 @Component({
@@ -20,24 +22,23 @@ searchTerm: string;
                private location: Location) { }
 
   ngOnInit() {
-    this.getEmployee();
+    this.getEmployees();
   }
   onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
   }
-  deleteEmployee(name): void {
-    const key = 'name';
-    for ( let i = 0; i < this.employees.length; i++) {
-      if (this.employees[i][key] === name) {
-        this.employees.splice(i, 1);
-      }
-
-    }
+  deleteEmployee(employee: Employee): void {
+    this.employees = this.employees.filter(t => t !== employee);
+    this.employeeService.deleteEmployee(employee).subscribe();
   }
-  addEmployee(employee: Employee) {
-    this.employees.push(employee);
+  addEmployee(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.employeeService.addEmployee({ name } as Employee).subscribe(employee => {
+      this.employees.push(employee);
+    });
   }
-  getEmployee(): void {
+  getEmployees(): void {
     this.employeeService.getEmployees()
       .subscribe(employees => this.employees = employees);
   }

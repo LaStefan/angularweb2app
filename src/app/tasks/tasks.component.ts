@@ -25,19 +25,16 @@ export class TasksComponent implements OnInit {
   onSelect(task: Task): void {
     this.selectedTask = task;
   }
-  addTask(task: Task): void {
-      if (task) {
-      this.tasks.push(task);
-    }
+  addTask(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.taskService.addTask({ name } as Task).subscribe(task => {
+        this.tasks.push(task);
+      });
   }
-  deleteTask(name): void {
-    const key = 'name';
-    for ( let i = 0; i < this.tasks.length; i++) {
-      if (this.tasks[i][key] === name) {
-        this.tasks.splice(i, 1);
-      }
-
-    }
+  deleteTask(task: Task): void {
+    this.tasks = this.tasks.filter(t => t !== task);
+    this.taskService.deleteTask(task).subscribe();
   }
   getTasks(): void {
     this.taskService.getTasks()

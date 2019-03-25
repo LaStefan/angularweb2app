@@ -1,0 +1,17 @@
+<div *ngIf="department">
+
+  <h2>{{department.name | uppercase}} Details</h2>
+  <div class="display-details"><span>id: </span>{{department.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="department.name" placeholder="name"/>
+    </label>
+  </div>
+  <div class="display-details">
+    <label>employees: {{department.employee}}</label>
+  </div>
+  <div>
+    <label>building: {{department.building}}</label>
+  </div>
+  <button class="button-style" mat-raised-button (click)="save()">Save</button>
+</div>
