@@ -25,14 +25,18 @@ export class TasksComponent implements OnInit {
   onSelect(task: Task): void {
     this.selectedTask = task;
   }
-  addTask(name: string): void {
+  addTask(name: string, department_id: number): void {
     name = name.trim();
+   // due_date = due_date.trim();
     if (!name) { return; }
-    this.taskService.addTask({ name } as Task).subscribe(task => {
+
+    // if (!due_date) { return; }
+    this.taskService.addTask({ name , department_id } as Task).subscribe(task => {
         this.tasks.push(task);
       });
   }
   deleteTask(task: Task): void {
+
     this.tasks = this.tasks.filter(t => t !== task);
     this.taskService.deleteTask(task).subscribe();
   }

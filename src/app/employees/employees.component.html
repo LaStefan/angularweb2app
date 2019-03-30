@@ -6,8 +6,9 @@
   </div>
   <div>
 
-    <input placeholder="add employee" #employee />
-    <button class="button-style" mat-raised-button (click)="addEmployee(employee.value); employee.value=''">Add</button>
+    <input placeholder="add employee first name" #employee />
+    <input placeholder="add employee last name"  #emp />
+    <button class="button-style" mat-raised-button (click)="addEmployee(employee.value,emp.value,190); employee.value=''; emp.value=''">Add</button>
   </div>
 
 
@@ -15,7 +16,7 @@
   <li *ngFor="let employee of employees"
       [class.selected]="employee === selectedEmployee"
       (click)="onSelect(employee)">
-    <span class="badge">{{employee.id}}</span> {{employee.name}}
+    <span class="badge">{{employee.id}}</span> {{employee.first_name}} {{employee.last_name}}
     <div>
       <button class="button-delete" mat-mini-fab (click)="deleteEmployee(employee)">X</button>
     </div>

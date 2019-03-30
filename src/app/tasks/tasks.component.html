@@ -5,9 +5,8 @@
 
   </div>
 <div>
-
-  <input placeholder="add task" #task />
-  <button class="button-style" mat-raised-button (click)="addTask(task.value); task.value=''">Add</button>
+  <input placeholder="add task name" #task />
+  <button class="button-style" mat-raised-button (click)="addTask(task.value,191); task.value=''">Add</button>
 </div>
 
 <ul class="tasks">
@@ -25,3 +24,4 @@
 
   <button class="button-style" mat-raised-button (click)="goBack()">Back</button>
 </div>
+

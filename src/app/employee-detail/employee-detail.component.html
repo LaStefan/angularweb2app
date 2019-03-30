@@ -1,18 +1,18 @@
 <div *ngIf="employee">
 
-  <h2>{{employee.firstName| uppercase}} Details</h2>
+  <h2>{{employee.first_name| uppercase}} {{employee.last_name | uppercase}} Details</h2>
   <div class="display-details"><span>id: </span>{{employee.id}}</div>
   <div>
     <label>name:
-      <input [(ngModel)]="employee.name" placeholder="name"/>
+      <input [(ngModel)]="employee.first_name" placeholder="name"/>
     </label>
 
   </div>
   <div class="display-details">
-    <label>department: {{employee.department}}</label>
+    <label>department: {{employee.department_id}}</label>
   </div>
   <div>
-    <label>DOB: {{employee.birthDate}}</label>
+    <label>DOB: {{employee.birth_date}}</label>
   </div>
   <button class="button-style" mat-raised-button (click)="save()">Save</button>
 </div>

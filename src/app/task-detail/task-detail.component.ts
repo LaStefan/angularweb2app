@@ -14,8 +14,12 @@ export class TaskDetailComponent implements OnInit {
 
   ngOnInit() {
   }
-  save(): void {
+  save(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.task.name = name;
     this.taskService.updateTask(this.task)
       .subscribe(() => this.tasksComponent.goBack());
   }
 }
+

@@ -4,7 +4,7 @@ import {Employee} from '../employee';
 import {EmployeeService} from '../employee.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {Task} from '../tasks';
+
 
 
 
@@ -17,6 +17,7 @@ export class EmployeesComponent implements OnInit {
 employees: Employee[];
 selectedEmployee: Employee;
 searchTerm: string;
+
   constructor( private employeeService: EmployeeService,
                private route: ActivatedRoute,
                private location: Location) { }
@@ -31,10 +32,12 @@ searchTerm: string;
     this.employees = this.employees.filter(t => t !== employee);
     this.employeeService.deleteEmployee(employee).subscribe();
   }
-  addEmployee(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.employeeService.addEmployee({ name } as Employee).subscribe(employee => {
+  addEmployee(first_name: string, last_name: string, department_id: number): void {
+    first_name = first_name.trim();
+    last_name = last_name.trim();
+    if (!first_name) { return; }
+    if (!last_name) { return; }
+    this.employeeService.addEmployee({first_name, last_name, department_id } as Employee).subscribe(employee => {
       this.employees.push(employee);
     });
   }
@@ -48,7 +51,7 @@ searchTerm: string;
   search(): void {
     const term = this.searchTerm;
     this.employees = this.employees.filter(function foo(tag) {
-      return tag.name.indexOf(term) >= 0;
+      return tag.first_name.indexOf(term) >= 0;
     });
   }
 }
