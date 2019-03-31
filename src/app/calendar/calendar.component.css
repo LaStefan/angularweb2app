@@ -17,7 +17,18 @@
   background-color: #EEEEEE;
   font-style: normal;
   font-size: large;
+}
 
+h3 {
+  margin: 0 0 10px;
+}
 
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+}
 
+.centerAlign{
+  margin-right: 50px;
+  margin-left: 50px;
 }

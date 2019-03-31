@@ -14,12 +14,16 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import { CalendarComponent } from './calendar/calendar.component';
-import { FullCalendarModule } from 'ng-fullcalendar';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { CommonModule } from '@angular/common';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarComponent } from './calendar/calendar.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     CalendarComponent,
     TaskDetailComponent,
     DepartmentDetailComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+      CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,10 +48,17 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
-    FullCalendarModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    NgbModalModule,
+    CalendarModule.forRoot({
+       provide: DateAdapter,
+       useFactory: adapterFactory})
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [CalendarComponent]
+
 })
 export class AppModule { }
